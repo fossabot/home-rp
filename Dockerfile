@@ -7,7 +7,7 @@ RUN dep ensure -v -vendor-only
 FROM rpdeper as builder
 WORKDIR /go/src/github.com/just1689/home-rp
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o plancks-cloud .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o home-rp .
 
 FROM scratch
 WORKDIR /
