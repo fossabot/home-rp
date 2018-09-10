@@ -3,11 +3,11 @@ package server
 import (
 	"github.com/gorilla/mux"
 	"github.com/just1689/home-rp/model"
+	"github.com/koding/websocketproxy"
+	"log"
 	"net/http"
-	"net/http/httputil"
 	"net/url"
 	"time"
-	"log"
 )
 
 func SetupServer(listenAddr string, routes []model.Route) *http.Server {
@@ -33,7 +33,7 @@ func SetupServer(listenAddr string, routes []model.Route) *http.Server {
 
 func reverseProxyRouteHandler(r *mux.Router, route model.Route) {
 	u, _ := url.Parse(route.RawUrl)
-	rev := httputil.NewSingleHostReverseProxy(u)
+	rev := websocketproxy.NewProxy(u)
 	r.Host(route.Host).HandlerFunc(rev.ServeHTTP)
 
 }
