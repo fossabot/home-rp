@@ -9,9 +9,9 @@ import (
 
 const (
 	EnvKeyListenAddr     = "ENV_KEY_LISTEN_ADDRESS"
-	DefaultListenAddress = "127.0.0.1:8000"
+	DefaultListenAddress = ":8000"
 	EnvKeyRoutes         = "ENV_KEY_ROUTES"
-	DefaultRoutes        = "localhost=http://team142.co.za" //Separated by commas
+	DefaultRoutes        = "" //HOST=FULL_URL,HOST=FULL_URL
 )
 
 func main() {
